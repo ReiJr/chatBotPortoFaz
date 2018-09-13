@@ -14,7 +14,7 @@ def hello():
 @app.route('/static_reply', methods=['POST'])
 def static_reply():
     speech = "Hello there, this reply is from the webhook !! "
-    string = "You are awesome !!"
+    string = "Olha lá o Nalds"
     Message ="this is the message"
     my_result =  {
     "fulfillmentText": string,
