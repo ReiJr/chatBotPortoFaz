@@ -11,6 +11,7 @@ app = Flask(__name__)
 def hello():
         return "Hello from Python!"
 
+'''
 @app.route('/static_reply', methods=['POST'])
 def static_reply():
     speech = "Hello there, this reply is from the webhook !! "
@@ -35,9 +36,9 @@ def webhook():
         res = json.dumps(res, indent=4)
         print (res)
         r = make_response(res)
-        r.header['Content-Type'] = 'application/json'
-        return r
-
+		r.headers['Content-Type'] = 'application/json'
+		return r
+		
 def makeWebhookResult(req):
         if req.get("queryResult").get("action")!= "portofaz":
                 return {}
@@ -52,7 +53,6 @@ def makeWebhookResult(req):
                 "fulfillmentText": speech,
                 "source": "portofaz"
                 }
-'''
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
