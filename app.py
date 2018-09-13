@@ -13,8 +13,8 @@ def hello():
 
 @app.route('/webhook', methods=['POST'])
 def webhook():
-        speech = "nalds"
-#        global speech
+#        speech = "nalds"
+        global speech
         req = request.get_json(silent=True, force=True)
         print ("Request:")
         print (json.dumps(req, indent=4))
@@ -25,7 +25,7 @@ def webhook():
         r.headers['Content-Type'] = 'application/json'
         return r
 def makeWebhookResult(req):
-        
+        global speech
         if req.get("queryResult").get("action")!= "portofaz":
                 return {}
         result = req.get("queryResult")
@@ -35,6 +35,7 @@ def makeWebhookResult(req):
             name = parameters.get("servico")
         #bank = {'Federal Bank':'6.7%', 'Andhra Bank':'6.85%', 'Bandhan Bank':'7.15%'}
             speech = "Olá, a Porto Faz consegue ajudar com " + name + ",quer mais detalhe que sobre o serviço?"
+        global speech
         print ("Response: ")
         print (speech)
         return {
