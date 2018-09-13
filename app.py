@@ -32,7 +32,8 @@ def makeWebhookResult(req):
                 return {}
         result = req.get("queryResult")
         parameters = result.get("parameters")
-        #print ("Parametro: " + str(parameters))
+        print (parameters)
+        print ("AQUI!++++++++++ " + str(parameters))
         if "servico" in str(parameters):
             name = parameters.get("servico")
             speech = "Olá, a Porto Faz consegue ajudar com " + name + ",quer mais detalhe que sobre o serviço?"
