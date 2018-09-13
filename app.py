@@ -27,6 +27,7 @@ def static_reply():
     return r
 
 '''
+'''
 @app.route('/webhook', methods=['POST'])
 def webhook():
         req = request.get_json(silent=True, force=True)
@@ -53,6 +54,8 @@ def makeWebhookResult(req):
                 "fulfillmentText": speech,
                 "source": "portofaz"
                 }
+'''
+
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
