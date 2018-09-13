@@ -6,7 +6,6 @@ from flask import request
 from flask import make_response
 
 app = Flask(__name__)
-global speech
 @app.route("/", methods=['GET'])
 def hello():
         return "Hello from Python!"
@@ -15,7 +14,7 @@ def hello():
 @app.route('/webhook', methods=['POST'])
 def webhook():
         speech = "nalds"
-        global speech
+#        global speech
         req = request.get_json(silent=True, force=True)
         print ("Request:")
         print (json.dumps(req, indent=4))
