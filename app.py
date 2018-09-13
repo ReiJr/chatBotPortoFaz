@@ -42,7 +42,7 @@ def makeWebhookResult(req):
         elif "cep" in str(parameters):
             name = parameters.get("cep")
             cep = buscaCEP(result)
-            speech = "para rua " + cep "?"
+            speech = "para rua " + cep + "?"
         print ("Response: ")
         print (speech)
         return {
