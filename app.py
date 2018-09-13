@@ -1,4 +1,4 @@
-import urllib
+'''import urllib
 import json
 import os
 from flask import Flask
@@ -41,3 +41,28 @@ def makeWebhookResult(req):
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
+'''
+from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+
+base_response = {
+                 'fulfillmentText':"VAI NALDS",
+
+                 'source' : 'portofaz'}
+
+
+@app.route('/',methods=['GET','POST'])
+def index():
+    if request.method == 'GET':
+        text = """WELCOME to RBG<br>
+        /testing -> red testing<br>"""
+        return text
+    else:
+        req_body = request.get_json()
+        print(req_body)
+        response = base_response.copy()
+        return jsonify(response)
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0',port=5000,debug=True)
