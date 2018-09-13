@@ -7,7 +7,7 @@ from flask import make_response
 
 app = Flask(__name__)
 
-@app.route("/")
+@app.route("/", methods=['GET'])
 def hello():
         return "Hello from Python!"
 
@@ -23,7 +23,6 @@ def webhook():
         r = make_response(res)
 	r.headers['Content-Type'] = 'application/json'
 	return r
-		
 def makeWebhookResult(req):
         if req.get("queryResult").get("action")!= "portofaz":
                 return {}
@@ -38,7 +37,6 @@ def makeWebhookResult(req):
                 "fulfillmentText": speech,
                 "source": "portofaz"
                 }
-
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
