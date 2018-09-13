@@ -36,6 +36,7 @@ def makeWebhookResult(req):
             name = parameters.get("servico")
         #bank = {'Federal Bank':'6.7%', 'Andhra Bank':'6.85%', 'Bandhan Bank':'7.15%'}
             speech = "Olá, a Porto Faz consegue ajudar com " + name + ",quer mais detalhe que sobre o serviço?"
+            print ("Speech: " + speech)
         #global speech
         print ("Response: ")
         print (speech)
