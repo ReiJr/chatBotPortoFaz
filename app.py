@@ -1,4 +1,5 @@
 import urllib
+import cgi
 import json
 import os
 from flask import Flask
@@ -51,7 +52,7 @@ def makeWebhookResult(req):
                 }
 
 def buscaCEP(result):
-        url = http://cep.republicavirtual.com.br/web_cep.php?cep=" + result + "&formato=query_string"
+        url = "http://cep.republicavirtual.com.br/web_cep.php?cep=" + result + "&formato=query_string"
         pagina      = urllib.urlopen(url)  
         conteudo    = pagina.read();  
         resultado   = cgi.parse_qs(conteudo);
