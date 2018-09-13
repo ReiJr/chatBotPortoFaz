@@ -6,7 +6,7 @@ from flask import request
 from flask import make_response
 
 app = Flask(__name__)
-speech = "nalds"
+global speech
 @app.route("/", methods=['GET'])
 def hello():
         return "Hello from Python!"
@@ -25,7 +25,7 @@ def webhook():
         r.headers['Content-Type'] = 'application/json'
         return r
 def makeWebhookResult(req):
-        global speech
+        #global speech
         if req.get("queryResult").get("action")!= "portofaz":
                 return {}
         result = req.get("queryResult")
