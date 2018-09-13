@@ -32,7 +32,7 @@ def makeWebhookResult(req):
         result = req.get("queryResult")
         parameters = result.get("parameters")
         print ("Parametro: " + str(parameters))
-        if (parameters == "servico"):
+        if "servico" in str(parameters):
 #            global speech
             name = parameters.get("servico")
         #bank = {'Federal Bank':'6.7%', 'Andhra Bank':'6.85%', 'Bandhan Bank':'7.15%'}
