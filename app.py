@@ -31,6 +31,7 @@ def makeWebhookResult(req):
                 return {}
         result = req.get("queryResult")
         parameters = result.get("parameters")
+        print ("Parametro: " + parameters)
         if (parameters == "servico"):
 #            global speech
             name = parameters.get("servico")
