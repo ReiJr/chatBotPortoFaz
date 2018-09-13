@@ -26,7 +26,7 @@ def webhook():
         return r
     
 def makeWebhookResult(req):
-        global speech    print seu cepo + name
+        global speech
         speech = "nalds"
         if req.get("queryResult").get("action")!= "portofaz":
                 return {}
