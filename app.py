@@ -14,7 +14,7 @@ def hello():
 @app.route('/webhook', methods=['POST'])
 def webhook():
 #        speech = "nalds"
-        global speech
+#        global speech
         req = request.get_json(silent=True, force=True)
         print ("Request:")
         print (json.dumps(req, indent=4))
@@ -26,6 +26,7 @@ def webhook():
         return r
 def makeWebhookResult(req):
         global speech
+        speech = "nalds"
         if req.get("queryResult").get("action")!= "portofaz":
                 return {}
         result = req.get("queryResult")
