@@ -27,15 +27,15 @@ def webhook():
         return r
     
 def makeWebhookResult(req):
-        print ("ENTROU NA FUNÇÃO PORRA")
+        #print ("ENTROU NA FUNÇÃO PORRA")
         global speech
         speech = "nalds"
         if req.get("queryResult").get("action")!= "portofaz":
                 return {}
         result = req.get("queryResult")
         parameters = result.get("parameters")
-        print (parameters)
-        print ("AQUI!++++++++++ " + str(parameters))
+        print (queryResult)
+        #print ("AQUI!++++++++++ " + str(parameters))
         if "servico" in str(parameters):
             name = parameters.get("servico")
             speech = "Olá, a Porto Faz consegue ajudar com " + name + ",quer mais detalhe que sobre o serviço?"
@@ -52,7 +52,7 @@ def makeWebhookResult(req):
                 }
 
 def buscaCEP(result):
-        url = "http://cep.republicavirtual.com.br/web_cep.php?cep=" + result + "&formato=query_string"
+        url = "http://cep.republicavirtual.com.br/web_cep.php?cep=" + str(result) + "&formato=query_string"
         pagina      = urllib.urlopen(url)  
         conteudo    = pagina.read();  
         resultado   = cgi.parse_qs(conteudo);
