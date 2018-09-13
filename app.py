@@ -25,14 +25,14 @@ def webhook():
         r.headers['Content-Type'] = 'application/json'
         return r
 def makeWebhookResult(req):
-#        global speech
+        global speech
         speech = "nalds"
         if req.get("queryResult").get("action")!= "portofaz":
                 return {}
         result = req.get("queryResult")
         parameters = result.get("parameters")
         if (parameters == "servico"):
-            global speech
+#            global speech
             name = parameters.get("servico")
         #bank = {'Federal Bank':'6.7%', 'Andhra Bank':'6.85%', 'Bandhan Bank':'7.15%'}
             speech = "Olá, a Porto Faz consegue ajudar com " + name + ",quer mais detalhe que sobre o serviço?"
