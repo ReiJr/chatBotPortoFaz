@@ -41,7 +41,8 @@ def makeWebhookResult(req):
                 
         elif "cep" in str(parameters):
             name = parameters.get("cep")
-            speech = "seu cep" + name
+            cep = buscaCEP(result)
+            speech = "para rua " + cep "?"
         print ("Response: ")
         print (speech)
         return {
@@ -49,6 +50,14 @@ def makeWebhookResult(req):
                 "source": "portofaz"
                 }
 
+def buscaCEP(result):
+        url = http://cep.republicavirtual.com.br/web_cep.php?cep=" + result + "&formato=query_string"
+        pagina      = urllib.urlopen(url)  
+        conteudo    = pagina.read();  
+        resultado   = cgi.parse_qs(conteudo);
+        if resultado['resultado'][0] == '1':
+                endereço = resultado['tipo_logradouro'][0] + " " + resultado['logradouro'][0]
+        return endereço     
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
