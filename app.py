@@ -33,8 +33,8 @@ def makeWebhookResult(req):
         if req.get("queryResult").get("action")!= "portofaz":
                 return {}
         result = req.get("queryResult")
+        text = result.get("queryText")
         parameters = result.get("parameters")
-        print (queryResult)
         #print ("AQUI!++++++++++ " + str(parameters))
         if "servico" in str(parameters):
             name = parameters.get("servico")
@@ -42,7 +42,7 @@ def makeWebhookResult(req):
                 
         elif "cep" in str(parameters):
             name = parameters.get("cep")
-            cep = buscaCEP(result)
+            cep = buscaCEP(text)
             speech = "para rua " + cep + "?"
         print ("Response: ")
         print (speech)
