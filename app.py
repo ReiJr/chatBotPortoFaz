@@ -21,8 +21,8 @@ def webhook():
         res = json.dumps(res, indent=4)
         print (res)
         r = make_response(res)
-	r.headers['Content-Type'] = 'application/json'
-	return r
+        r.headers['Content-Type'] = 'application/json'
+        return r
 def makeWebhookResult(req):
         if req.get("queryResult").get("action")!= "portofaz":
                 return {}
