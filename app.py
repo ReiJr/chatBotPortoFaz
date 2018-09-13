@@ -24,7 +24,7 @@ def webhook():
         return r
 
 def makeWebhookResult(req):
-        if req.get("result").get("action")!= "portofaz":
+        if req.get("queryResult").get("action")!= "portofaz":
                 return {}
         result = req.get("queryResult")
         parameters = result.get("parameters")
