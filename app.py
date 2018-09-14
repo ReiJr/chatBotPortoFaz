@@ -5,6 +5,7 @@ import os
 from flask import Flask
 from flask import request
 from flask import make_response
+from urllib.request import urlopen
 
 app = Flask(__name__)
 @app.route("/", methods=['GET'])
@@ -51,14 +52,17 @@ def makeWebhookResult(req):
                 "source": "portofaz"
                 }
 
-def buscaCEP(result):
-        url = "http://cep.republicavirtual.com.br/web_cep.php?cep=" + str(result) + "&formato=query_string"
-        pagina      = urllib.urlopen(url)  
-        conteudo    = pagina.read();  
-        resultado   = cgi.parse_qs(conteudo);
+def buscaCEP(text):
+        url = "http://cep.republicavirtual.com.br/web_cep.php?cep=" + str(text) + "&formato=query_string"
+        pagina      = urlopen(url).read()  
+        conteudo    = pagina.decode('utf-8') #pagina.encode('utf-8')
+        resultado   = cgi.parse_qs(conteudo)
+        print (resultado)
         if resultado['resultado'][0] == '1':
-                endereço = resultado['tipo_logradouro'][0] + " " + resultado['logradouro'][0]
-        return endereço     
+                endereco = resultado['tipo_logradouro'][0] + " " + resultado['logradouro'][0]
+        #print (endereco)
+        return endereco #.encode('utf-8')    
+
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
