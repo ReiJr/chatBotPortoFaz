@@ -6,6 +6,7 @@ from flask import Flask
 from flask import request
 from flask import make_response
 from urllib.request import urlopen
+from twilio.rest import Client
 
 app = Flask(__name__)
 @app.route("/", methods=['GET'])
@@ -42,6 +43,9 @@ def makeWebhookResult(req):
             name = parameters.get("cep")
             cep = buscaCEP(text)
             speech = "para " + cep + "?"
+        
+        elif ("manha" | "tarde" | "manhã") in str(text):
+             
         print ("Response: ")
         print (speech)
         return {
