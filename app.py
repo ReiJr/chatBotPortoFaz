@@ -30,8 +30,8 @@ def webhook():
 def makeWebhookResult(req):
         global speech
         speech = "nalds"
-        if req.get("queryResult").get("action")!= "portofaz":
-                return {}
+        #if req.get("queryResult").get("action")!= "portofaz":
+        #        return {}
         result = req.get("queryResult")
         text = result.get("queryText")
         parameters = result.get("parameters")
