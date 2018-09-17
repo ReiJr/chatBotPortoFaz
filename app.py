@@ -44,7 +44,7 @@ def makeWebhookResult(req):
             cep = buscaCEP(text)
             speech = "para " + cep + "?"
         
-        elif ("manha" | "manhã") in str(text):
+        elif ("manha") in str(text):
              speech = "Perfeito! o agendamento foi realizado com sucesso para o período da 8 horas até 12 horas"
              account_sid = "AC939d6dd17be0fc9b95b70be9e1ee975e"
              auth_token = "221ba8c8cd97e27f28ff0b665f77c973"
