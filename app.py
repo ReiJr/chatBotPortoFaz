@@ -15,7 +15,6 @@ def hello():
 
 @app.route('/webhook', methods=['POST'])
 def webhook():
-#        speech = "nalds"
         global speech
         req = request.get_json(silent=True, force=True)
         print ("Request:")
@@ -28,7 +27,6 @@ def webhook():
         return r
     
 def makeWebhookResult(req):
-        #print ("ENTROU NA FUNÇÃO PORRA")
         global speech
         speech = "nalds"
         if req.get("queryResult").get("action")!= "portofaz":
@@ -36,7 +34,6 @@ def makeWebhookResult(req):
         result = req.get("queryResult")
         text = result.get("queryText")
         parameters = result.get("parameters")
-        #print ("AQUI!++++++++++ " + str(parameters))
         if "servico" in str(parameters):
             name = parameters.get("servico")
             speech = "Olá, a Porto Faz consegue ajudar com " + name + ",quer mais detalhe que sobre o serviço?"
@@ -44,7 +41,7 @@ def makeWebhookResult(req):
         elif "cep" in str(parameters):
             name = parameters.get("cep")
             cep = buscaCEP(text)
-            speech = "para rua " + cep + "?"
+            speech = "para " + cep + "?"
         print ("Response: ")
         print (speech)
         return {
@@ -60,7 +57,7 @@ def buscaCEP(text):
         print (resultado)
         if resultado['resultado'][0] == '1':
                 endereco = resultado['tipo_logradouro'][0] + " " + resultado['logradouro'][0]
-        #print (endereco)
+
         return endereco #.encode('utf-8')    
 
 if __name__ == "__main__":
