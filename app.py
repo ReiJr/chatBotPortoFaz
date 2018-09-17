@@ -44,8 +44,24 @@ def makeWebhookResult(req):
             cep = buscaCEP(text)
             speech = "para " + cep + "?"
         
-        elif ("manha" | "tarde" | "manhã") in str(text):
-             
+        elif ("manha" | "manhã") in str(text):
+             speech = "Perfeito! o agendamento foi realizado com sucesso para o período da 8 horas até 12 horas"
+             account_sid = "AC939d6dd17be0fc9b95b70be9e1ee975e"
+             auth_token = "221ba8c8cd97e27f28ff0b665f77c973"
+             from_number = "+15177265062"  # With trial account, texts can only be sent from your Twilio number.
+             to_number = "+5513997984111"
+             message = "Agendamento do serviço de torneira para o périodo da manhã"
+
+             # Initialize the Twilio client.
+             client = Client(account_sid, auth_token)
+
+             # Send the SMS message.
+             message = client.messages.create(to=to_number,
+                                 from_=from_number,
+                                 body=message)   
+        else:
+            speech = "Não entendi, por favor pode repertir?"
+        
         print ("Response: ")
         print (speech)
         return {
