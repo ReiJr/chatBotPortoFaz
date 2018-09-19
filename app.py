@@ -119,8 +119,8 @@ def buscaCEP(text):
         resultado   = cgi.parse_qs(conteudo)
         #print (resultado)
         if resultado['resultado'][0] == '1':
-                endereco = resultado['tipo_logradouro'][0].encode('utf-8') + " " + resultado['logradouro'][0]
-        print ("endereço: "+ endereco)
+                endereco = resultado['tipo_logradouro'][0] + " " + resultado['logradouro'][0]
+        print ("endereço: "+ endereco.encode('utf-8'))
         return endereco #.encode('utf-8')    
 
 if __name__ == "__main__":
