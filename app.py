@@ -44,7 +44,7 @@ def makeWebhookResult(req):
         #retorna para servico
         if "servico" in str(parameters):
             name = parameters.get("servico")
-            speech = "Olá, a Porto Faz consegue ajudar com " + name + ",quer mais detalhe que sobre o serviço?"
+            speech = "Olá, a Porto Faz consegue ajudar com " + name + ",quer mais detalhe sobre o serviço?"
         
         #retorna para cep
         elif "cep" in str(parameters):
