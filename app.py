@@ -56,7 +56,7 @@ def makeWebhookResult(req):
         
         #retorna para manha
         elif ("manha") in str(text):
-             speech = "Perfeito! o agendamento foi realizado com sucesso para o período da 8 horas até 12 horas"
+             speech = "Perfeito! o agendamento foi realizado com sucesso para o período da 8 horas até 12 horas. Você receberá um sms com a confirmação. A porto seguro agradece sua preferência"
              account_sid = "AC939d6dd17be0fc9b95b70be9e1ee975e"
              auth_token = "221ba8c8cd97e27f28ff0b665f77c973"
              from_number = "+15177265062"  # With trial account, texts can only be sent from your Twilio number.
@@ -71,7 +71,7 @@ def makeWebhookResult(req):
                                  from_=from_number,
                                  body=message)
         elif ("manhã") in str(text):
-             speech = "Perfeito! o agendamento foi realizado com sucesso para o período da 8 horas até 12 horas"
+             speech = "Perfeito! o agendamento foi realizado com sucesso para o período da 8 horas até 12 horas. Você receberá um sms com a confirmação. A porto seguro agradece sua preferência"
              account_sid = "AC939d6dd17be0fc9b95b70be9e1ee975e"
              auth_token = "221ba8c8cd97e27f28ff0b665f77c973"
              from_number = "+15177265062"  # With trial account, texts can only be sent from your Twilio number.
@@ -87,7 +87,7 @@ def makeWebhookResult(req):
                                  body=message)
                 
         elif ("tarde") in str(text):
-             speech = "Perfeito! o agendamento foi realizado com sucesso para o período da 12 horas até 18 horas"
+             speech = "Perfeito! o agendamento foi realizado com sucesso para o período da 12 horas até 18 horas. Você receberá um sms com a confirmação. A porto seguro agradece sua preferência"
              account_sid = "AC939d6dd17be0fc9b95b70be9e1ee975e"
              auth_token = "221ba8c8cd97e27f28ff0b665f77c973"
              from_number = "+15177265062"  # With trial account, texts can only be sent from your Twilio number.
