@@ -61,7 +61,7 @@ def makeWebhookResult(req):
              auth_token = "221ba8c8cd97e27f28ff0b665f77c973"
              from_number = "+15177265062"  # With trial account, texts can only be sent from your Twilio number.
              to_number = "+5513997984111"
-             message = "Agendamento do serviço de torneira para o périodo da manhã"
+             message = "Seu agendamento está confirmado para hoje no período da manhã"
 
              # Initialize the Twilio client.
              client = Client(account_sid, auth_token)
@@ -76,7 +76,7 @@ def makeWebhookResult(req):
              auth_token = "221ba8c8cd97e27f28ff0b665f77c973"
              from_number = "+15177265062"  # With trial account, texts can only be sent from your Twilio number.
              to_number = "+5513997984111"
-             message = "Agendamento do serviço de torneira para o périodo da manhã"
+             message = "Seu agendamento está confirmado para hoje no período da manhã"
 
              # Initialize the Twilio client.
              client = Client(account_sid, auth_token)
@@ -92,7 +92,7 @@ def makeWebhookResult(req):
              auth_token = "221ba8c8cd97e27f28ff0b665f77c973"
              from_number = "+15177265062"  # With trial account, texts can only be sent from your Twilio number.
              to_number = "+5513997984111"
-             message = "Agendamento do serviço de torneira para o périodo da tarde"
+             message = "Seu agendamento está confirmado para hoje no período da tarde"
 
              # Initialize the Twilio client.
              client = Client(account_sid, auth_token)
